@@ -193,11 +193,13 @@ def match_with_gaps(my_word, other_word):
     list_other_word = list(other_word)
     list_word = list(my_word.replace(" ", ""))
 
-    # This code checks that the numbers of letters was the same.
-    # Without this code it might happen that in hints words will be word with more numbers of the same letters than in a guessed string.
-    # For example, if we have '_ _ ee' and ask for a hint than we'll get 'epee'. This isn't correct hint cause we showed all available 'e' in word in the guessed string.
-    # To avoid it i wrote the func below.
     def check_letters(guessed_word, hint_word):
+        '''
+        This code checks that the numbers of letters was the same.
+        Without this code it might happen that in hints words will be word with more numbers of the same letters than in a guessed string.
+        For example, if we have '_ _ ee' and ask for a hint than we'll get 'epee'. This isn't correct hint cause we showed all available 'e' in word in the guessed string.
+        To avoid it i wrote this func.
+        '''
         guessed_word_set = set(guessed_word)
         guessed_word_set.discard('_')
         for letter in guessed_word:
